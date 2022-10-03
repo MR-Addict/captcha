@@ -1,17 +1,75 @@
-# 图形验证API
+# Captcha识别器
 
-## 如何使用
+## 1. 如何搭建
 
-### curl
+### 1.1 使用Docker
+
+克隆文档：
+
+```bash
+git clone https://github.com/MR-Addict/captcha.git
+```
+
+编译Docker镜像：
+
+```bash
+docker build -t captcha .
+```
+
+启动该docker镜像：
+
+```bash
+docker-compose up -d
+```
+
+### 1.2 本地部署
+
+克隆文档：
+
+```bash
+git clone https://github.com/MR-Addict/captcha.git
+```
+
+安装npm依赖：
+
+```bash
+npm install
+```
+
+安装python依赖：
+
+```bash
+python install -r requirements
+```
+
+启动app：
+
+```bash
+node index.js
+```
+
+## 2. 如何使用
+
+### 2.1 使用API接口
+
+服务器请自行部署，API接口用法如下：
+
+|  参数   |      值      |
+| :-----: | :----------: |
+| method  |     post     |
+|  type   | local/online |
+| captcha | 本地图片/URL |
+
+#### 2.1.1 curl
 
 ```bash
 # 上传本地图片
 curl -skL http://localhost:8000 -F type=local -F captcha=@3913.jpg | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
 # 上传云端图片
-curl -skL http://localhost:8000 -F type=online -F captcha="http://localhost:8000/3913.jpg" | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
+curl -skL http://localhost:8000 -F type=online -F captcha="http://online/image/url" | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
 ```
 
-### python
+#### 2.1.2 python
 
 ```python
 import json
@@ -26,12 +84,32 @@ def decode_local_img:
     result = json.loads(response.text)
 
 
-# 上传云端图片
+# 上传在线图片
 def decode_online_img:
-    data = {"type": "online","captcha":"http://localhost:8000/3913.jpg"}
+    data = {"type": "online","captcha":"http://online/image/url"}
     response = requests.post("http://localhost:8000", data=data)
     result = json.loads(response.text)
 
 
 print(result["data"])
 ```
+
+> 备注：其他语言和脚本使用方法类似
+
+### 2.2 使用Web UI
+
+部署好服务器后，你可以直接打开其本地Web地址
+
+- [http://localhost:8000](http://localhost:8000)
+
+本地图片模式
+
+![local-mode](images/local.png)
+
+在线图片模式
+
+![online-mode](images/online.png)
+
+## 3. 说明
+
+本项目核心Captcha识别使用了ddddocr的Python库，详细内容可参考sml2h3的[GitHub项目](https://github.com/sml2h3/ddddocr)。
