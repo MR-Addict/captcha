@@ -14,6 +14,7 @@ app.use(
 
 //add other middleware
 app.use(bodyParser.json());
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/", async (req, res) => {
