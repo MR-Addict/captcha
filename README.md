@@ -1,4 +1,7 @@
-# Captcha识别器
+<h1>
+  Captcha识别器
+  <img src="https://github.com/MR-Addict/captcha/actions/workflows/docker.yml/badge.svg?branch=main"/>
+</h1>
 
 ## 1. 如何搭建
 
