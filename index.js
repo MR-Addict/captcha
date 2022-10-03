@@ -24,13 +24,13 @@ app.post("/", async (req, res) => {
     } else {
       if (req.files.captcha) {
         const captcha = req.files.captcha;
-        captcha.mv("images/captcha.jpg");
+        captcha.mv("uploads/captcha.jpg");
         PythonShell.run("captcha.py", null, function (err, results) {
           if (err) {
             console.log(err);
             res.send({ status: false, message: "Solving failed" });
           } else {
-            const response = { status: true, message: results[0], times: results[1] };
+            const response = { status: true, message: results[0] };
             console.log(response);
             res.send(response);
           }

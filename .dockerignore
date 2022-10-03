@@ -1,0 +1,10 @@
+test
+images
+uploads
+README.md
+Dockerfile
+actions-runner
+docker-compose.yml
+.git
+.github
+.gitignore

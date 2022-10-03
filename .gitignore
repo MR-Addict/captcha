@@ -1,3 +1,5 @@
 test
 node_modules
 images
+uploads
+__pycache__
