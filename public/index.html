@@ -15,12 +15,12 @@
         <h1>Captcha识别</h1>
       </div>
       <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="captcha" onchange="loadImage(event)" />
-        <button type="button" onclick="uploadImage(event)">识别</button>
+        <label for="captcha">选择图片</label>
+        <input type="file" name="captcha" id="captcha" onchange="loadImage(event)" />
       </form>
       <div class="result">
         <img src="404.png" alt="captcha" />
-        <p>无结果</p>
+        <p>暂无结果</p>
       </div>
     </div>
   </body>

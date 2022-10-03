@@ -5,7 +5,7 @@
 curl：
 
 ```bash
-curl -skL http://202.119.245.12:51080 -F captcha=@captcha.jpg | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
+curl -skL http://localhost:8000 -F captcha=@captcha.jpg | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
 ```
 
 python：
@@ -15,7 +15,7 @@ import json
 import requests
 
 files = {'captcha': open("images/captcha.jpg", 'rb')}
-response = requests.post("http://202.119.245.12:51080", files=files)
+response = requests.post("http://localhost:8000", files=files)
 result = json.loads(response.text)
 
 print(result["data"])
