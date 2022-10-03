@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" defer></script>
-    <title>Captcha识别</title>
+    <title>Captcha识别器</title>
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <h1>Captcha识别</h1>
+        <h1>Captcha识别器</h1>
       </div>
 
       <div class="tabs">
@@ -26,7 +26,7 @@
           <input type="file" name="captcha" id="captcha_local" onchange="loadLocalImage(event)" />
         </div>
         <div class="result">
-          <img src="404.png" alt="captcha" id="local_img" onerror="img_error(event)" />
+          <img src="default.png" alt="captcha" id="local_img" onerror="img_error(event)" />
           <p>暂无结果</p>
         </div>
       </div>
@@ -42,7 +42,7 @@
           />
         </div>
         <div class="result">
-          <img src="404.png" alt="captcha" id="online_img" onerror="img_error(event)" />
+          <img src="default.png" alt="captcha" id="online_img" onerror="img_error(event)" />
           <p>暂无结果</p>
         </div>
       </div>
