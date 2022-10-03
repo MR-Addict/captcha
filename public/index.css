@@ -158,3 +158,12 @@ body {
   border-radius: 1rem;
   background: var(--pri-grey);
 }
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 55%;
+  }
+  .container {
+    width: 35rem;
+  }
+}
