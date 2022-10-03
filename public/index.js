@@ -1,5 +1,4 @@
 function loadLocalImage(event) {
-  console.log("img uploaded!");
   if (!event.target.files[0]) return;
   const image = document.getElementById("local_img");
   image.src = URL.createObjectURL(event.target.files[0]);
