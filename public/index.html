@@ -14,13 +14,37 @@
       <div class="header">
         <h1>Captcha识别</h1>
       </div>
-      <form action="/" method="post" enctype="multipart/form-data">
-        <label for="captcha">选择图片</label>
-        <input type="file" name="captcha" id="captcha" onchange="loadImage(event)" />
-      </form>
-      <div class="result">
-        <img src="404.png" alt="captcha" />
-        <p>暂无结果</p>
+
+      <div class="tabs">
+        <button id="local_button">本地图片</button>
+        <button id="online_button">在线图片</button>
+      </div>
+
+      <div id="local_form">
+        <div class="form">
+          <label for="captcha_local">选择图片</label>
+          <input type="file" name="captcha" id="captcha_local" onchange="loadLocalImage(event)" />
+        </div>
+        <div class="result">
+          <img src="404.png" alt="captcha" id="local_img" onerror="img_error(event)" />
+          <p>暂无结果</p>
+        </div>
+      </div>
+
+      <div id="online_form">
+        <div class="form">
+          <input
+            type="text"
+            name="captcha"
+            id="captcha_online"
+            onchange="loadOnlineImage(event)"
+            placeholder="请输入图片URL"
+          />
+        </div>
+        <div class="result">
+          <img src="404.png" alt="captcha" id="online_img" onerror="img_error(event)" />
+          <p>暂无结果</p>
+        </div>
       </div>
     </div>
   </body>

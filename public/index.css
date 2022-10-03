@@ -22,13 +22,13 @@ html {
 
 /* body */
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: var(--pri-bcg);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 /* container */
@@ -37,7 +37,6 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   background: var(--pri-white);
-  margin-top: 10rem;
 
   gap: 2rem;
   display: flex;
@@ -53,25 +52,66 @@ body {
   color: var(--pri-dark-grey);
 }
 
-/* form */
-form {
+.tabs {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs button {
+  width: 50%;
+  height: 4rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* local */
+#local_form,
+#online_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* form */
+.form {
+  width: 100%;
+  height: 4rem;
   position: relative;
-  padding: 1rem;
 
   border-radius: 1rem;
   background: var(--pri-grey);
 }
 
-form input::-webkit-file-upload-button {
+.form input::-webkit-file-upload-button {
   display: none;
 }
 
-form input[type="file"] {
+.form input[type="file"] {
   display: none;
 }
 
-form label {
+.form input[type="text"] {
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  background: var(--pri-grey);
+}
+
+.form label {
   text-align: center;
   display: block;
   margin: auto;
@@ -79,6 +119,7 @@ form label {
   font-size: 1.6rem;
   width: 100%;
   font-weight: bold;
+  padding: 1rem;
 }
 
 /* result */
