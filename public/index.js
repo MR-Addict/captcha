@@ -14,7 +14,7 @@ function uploadLocalImage() {
   formData.append("captcha", captcha);
   fetch("/", { method: "POST", body: formData })
     .then((response) => response.json())
-    .then((response) => (document.querySelector("#local_form .result p").innerText = response.message));
+    .then((response) => (document.querySelector("#local_tab .result p").innerText = response.message));
 }
 
 function loadOnlineImage(event) {
@@ -31,7 +31,7 @@ function uploadOnlineImage(img_url) {
   formData.append("captcha", img_url);
   fetch("/", { method: "POST", body: formData })
     .then((response) => response.json())
-    .then((response) => (document.querySelector("#online_form .result p").innerText = response.message));
+    .then((response) => (document.querySelector("#online_tab .result p").innerText = response.message));
 }
 
 // set image error image
@@ -42,20 +42,26 @@ function img_error(event) {
 function showTab(num) {
   local_button = document.getElementById("local_button");
   online_button = document.getElementById("online_button");
-  local_form = document.getElementById("local_form");
-  online_form = document.getElementById("online_form");
+
+  local_form = document.getElementById("local_tab");
+  online_form = document.getElementById("online_tab");
+
   if (num) {
     local_button.style.background = "var(--pri-grey)";
     local_button.style.color = "var(--pri-dark-grey)";
+
     online_button.style.background = "var(--pri-green)";
     online_button.style.color = "var(--pri-white)";
+
     local_form.style.display = "none";
     online_form.style.display = "";
   } else {
     local_button.style.background = "var(--pri-green)";
     local_button.style.color = "var(--pri-white)";
+
     online_button.style.background = "var(--pri-grey)";
     online_button.style.color = "var(--pri-dark-grey)";
+
     local_form.style.display = "";
     online_form.style.display = "none";
   }

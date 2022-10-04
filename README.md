@@ -61,9 +61,9 @@ node index.js
 
 ```bash
 # 上传本地图片
-curl -skL http://localhost:8000 -F type=local -F captcha=@3913.jpg | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
+curl -skL http://localhost:8000 -F type=local -F captcha=@3913.jpg
 # 上传云端图片
-curl -skL http://localhost:8000 -F type=online -F captcha="http://online/image/url" | sed -E 's/.*"message":"?([^,"]*)"?.*/\1/'
+curl -skL http://localhost:8000 -F type=online -F captcha="http://online/image/url"
 ```
 
 #### 2.1.2 python
@@ -89,8 +89,8 @@ def decode_captcha_online(img_url):
 
 
 if __name__ == '__main__':
-    print(decode_captcha_local("images/captcha.jpg")["message"])
-    print(decode_captcha_online("http://online/image/url")["message"])
+    print(decode_captcha_local("images/captcha.jpg"))
+    print(decode_captcha_online("http://online/image/url"))
 ```
 
 > 备注：其他语言和脚本使用方法类似
