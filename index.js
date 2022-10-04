@@ -9,6 +9,8 @@ const PythonShell = require("python-shell").PythonShell;
 app.use(
   fileUpload({
     createParentPath: true,
+    limits: { fileSize: 5 * 1024 * 1024 },
+    abortOnLimit: true,
   })
 );
 
@@ -19,12 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/", async (req, res) => {
   try {
+    // local mode
     if (req.body.type == "local") {
+      // no files
       if (!req.files) {
         const response = { status: false, message: "No file uploaded" };
         console.log(response);
         res.send(response);
       } else {
+        // contain captcha file
         if (req.files.captcha) {
           const captcha = req.files.captcha;
           captcha.mv("uploads/captcha.jpg");
@@ -43,26 +48,35 @@ app.post("/", async (req, res) => {
               }
             }
           );
-        } else {
+        }
+        // captcha key error
+        else {
           const response = { status: false, message: "Upload file key should be captcha" };
           console.log(response);
           res.send(response);
         }
       }
-    } else if (req.body.type == "online") {
+    }
+    // online mode
+    else if (req.body.type == "online") {
       const captcha_url = req.body.captcha;
       PythonShell.run("captcha.py", { args: ["-t", "online", "-d", captcha_url] }, function (err, results) {
+        // decode error
         if (err) {
           const response = { status: false, message: "Solving failed" };
           console.log(response);
           res.send(response);
-        } else {
+        }
+        // success
+        else {
           const response = { status: true, message: results[0] };
           console.log(response);
           res.send(response);
         }
       });
-    } else {
+    }
+    // other type
+    else {
       const response = { status: false, message: "Type error" };
       console.log(response);
       res.send(response);
