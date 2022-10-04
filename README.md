@@ -61,7 +61,7 @@ node index.js
 
 ```bash
 # 上传本地图片
-curl -skL http://localhost:8000 -F type=local -F captcha=@3913.jpg
+curl -skL http://localhost:8000 -F type=local -F captcha=@captcha.jpg
 # 上传云端图片
 curl -skL http://localhost:8000 -F type=online -F captcha="http://online/image/url"
 ```
