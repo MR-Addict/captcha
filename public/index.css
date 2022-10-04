@@ -159,6 +159,12 @@ body {
   background: var(--pri-grey);
 }
 
+/* footer */
+footer {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+
 @media screen and (max-width: 800px) {
   html {
     font-size: 55%;
