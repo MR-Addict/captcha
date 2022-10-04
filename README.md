@@ -13,13 +13,7 @@
 git clone https://github.com/MR-Addict/captcha.git
 ```
 
-编译Docker镜像：
-
-```bash
-docker build -t captcha .
-```
-
-启动该docker镜像：
+启动docker镜像：
 
 ```bash
 docker-compose up -d
