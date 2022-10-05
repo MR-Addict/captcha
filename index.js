@@ -15,6 +15,7 @@ app.use(
 //custom variables
 const max_image_size = 1 * 1024 * 1024;
 const upload_image_path = "uploads/captcha.jpg";
+const image_extensions = ["jpg", "jpeg", "png", "svg"];
 
 //add other middleware
 app.use(bodyParser.json());
@@ -29,6 +30,10 @@ app.post("/", async (req, res) => {
       const captcha = req.files.captcha;
       if (captcha.size > max_image_size) {
         const response = { status: false, message: "Image size too big!" };
+        console.log(response);
+        res.send(response);
+      } else if (!image_extensions.includes(captcha.name.split(".").pop().toLowerCase())) {
+        const response = { status: false, message: "Image extension not support!" };
         console.log(response);
         res.send(response);
       } else {
