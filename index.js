@@ -36,7 +36,7 @@ app.post("/", async (req, res) => {
         // run python shell
         PythonShell.run("captcha.py", { args: ["-t", "local", "-d", upload_image_path] }, function (err, results) {
           // execute python failed
-          if (err || !results) {
+          if (err || results == null) {
             const response = { status: false, message: "Failed" };
             console.log(response);
             res.send(response);
@@ -55,7 +55,7 @@ app.post("/", async (req, res) => {
       const captcha = req.body.captcha;
       PythonShell.run("captcha.py", { args: ["-t", "online", "-d", captcha] }, function (err, results) {
         // fail
-        if (err) {
+        if (err || results == null) {
           const response = { status: false, message: "Failed" };
           console.log(response);
           res.send(response);

@@ -2,7 +2,10 @@ import ddddocr
 import requests
 import argparse
 
-ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
+# ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
+ocr = ddddocr.DdddOcr(beta=False, show_ad=False,
+                      import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--Dest", help="Image destination")
 parser.add_argument("-t", "--Type", help="Captcha type")
