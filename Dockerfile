@@ -1,8 +1,6 @@
-FROM nikolaik/python-nodejs:latest
+FROM python:slim-buster
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install -ci
 EXPOSE 8000
 COPY . .
 RUN pip install -r requirements.txt
-CMD ["node", "index.js"]
+CMD ["python", "index.py"]
