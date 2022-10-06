@@ -3,7 +3,9 @@ import requests
 from flask import Flask, send_from_directory, render_template, request
 
 app = Flask(__name__, static_folder='templates')
+# 默认模型
 # ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
+# 我自己训练的模型
 ocr = ddddocr.DdddOcr(beta=False, show_ad=False,
                       import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
 

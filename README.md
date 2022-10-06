@@ -9,10 +9,10 @@
 
 #### 1.1.1 一键部署
 
-一键部署命令
+一键部署
 
 ```bash
-docker run --restart=always -p 8000:8000 -d --name captcha mraddict063/captcha
+docker run --restart=unless-stopped -p 8000:8000 -d --name captcha mraddict063/captcha
 ```
 
 ### 1.1.2 手动编译
@@ -128,17 +128,19 @@ if __name__ == '__main__':
 
 本项目核心Captcha识别使用了ddddocr的Python库，详细内容可参考sml2h3的[GitHub项目](https://github.com/sml2h3/ddddocr)。
 
-另外本项目也使用了sml2h3的[ddddocr训练项目](https://github.com/sml2h3/dddd_trainer)，来训练适合南京工业大学的校园网登录图形验证码，使用自己训练的模型，我的1000张样本的成功率在100%，目前南京工业大学的校园网登录图形验证码如下。
+另外本项目也使用了sml2h3的[ddddocr训练项目](https://github.com/sml2h3/dddd_trainer)，来训练适合南京工业大学的校园网登录图形验证码。
 
-![Njtech-Captcha](images/5958.jpg)
+我使用自己训练的模型，1000张样本的成功率是100%。你也可以使用默认的模型，识别的成功率也很高，1000张样本只有5张错误。
 
-如果日后图形验证码有大的变化再训练，目前的模型针对性强，成功率高。你也可以直接使用原来sml2h3训练的模型，成功率也很好，我的1000张样本只有5张错误。
-
-将`captcha.py`中的以下内容删除模型导入就会使用默认模型：
+如果你想使用默认的模型，可以修改`index.py`中的以下内容：
 
 ```python
-# 默认的模型
-#ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
-# 自己训练的模型
+# 默认模型
+# ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
+# 我自己训练的模型
 ocr = ddddocr.DdddOcr(beta=False, show_ad=False, import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
 ```
+
+目前南京工业大学的校园网登录图形验证码如下。
+
+![Njtech-Captcha](images/5958.jpg)
