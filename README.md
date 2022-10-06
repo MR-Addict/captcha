@@ -15,7 +15,7 @@
 docker run --restart=unless-stopped -p 8000:8000 -d --name captcha mraddict063/captcha
 ```
 
-### 1.1.2 手动编译
+#### 1.1.2 手动编译
 
 克隆文档
 
