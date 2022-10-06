@@ -7,42 +7,57 @@
 
 ### 1.1 使用Docker
 
-克隆文档：
+#### 1.1.1 一键部署
+
+一键部署命令
+
+```bash
+docker run --restart=always -p 8000:8000 -d --name captcha mraddict063/captcha
+```
+
+### 1.1.2 手动编译
+
+克隆文档
 
 ```bash
 git clone https://github.com/MR-Addict/captcha.git
 ```
 
-启动docker镜像：
+编译镜像
 
 ```bash
-docker-compose up -d
+docker build -t captcha .
 ```
+
+启动镜像
+
+```bash
+docker run --restart=always -p 8000:8000 -d --name captcha captcha
+```
+
+> docker-compose版
+> ```bash
+> docker-compose up -d
+> ```
 
 ### 1.2 本地部署
 
-克隆文档：
+克隆文档
 
 ```bash
 git clone https://github.com/MR-Addict/captcha.git
 ```
 
-安装npm依赖：
-
-```bash
-npm install
-```
-
-安装python依赖：
+安装python依赖
 
 ```bash
 python install -r requirements
 ```
 
-启动app：
+启动app
 
 ```bash
-node index.js
+python index.py
 ```
 
 ## 2. 如何使用
