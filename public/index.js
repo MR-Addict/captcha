@@ -19,5 +19,6 @@ function uploadImage(captcha) {
   formData.append("captcha", captcha);
   fetch("/", { method: "POST", body: formData })
     .then((response) => response.json())
-    .then((response) => (document.querySelector(".main p").innerText = response.message));
+    .then((response) => (document.querySelector(".main p").innerText = response.message))
+    .catch((error) => (document.querySelector(".main p").innerText = "识别失败"));
 }
