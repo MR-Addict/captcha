@@ -66,46 +66,32 @@ python index.py
 
 服务器请自行部署，API接口用法如下：
 
-|  参数   |      值      |
-| :-----: | :----------: |
-| method  |     post     |
-|  type   | local/online |
-| captcha | 本地图片/URL |
+|  参数   |    值    |
+| :-----: | :------: |
+| method  |   post   |
+| captcha | 本地图片 |
 
 #### 2.1.1 curl
 
 ```bash
-# 上传本地图片
 curl -skL http://localhost:8000 -F type=local -F captcha=@captcha.jpg
-# 上传云端图片
-curl -skL http://localhost:8000 -F type=online -F captcha="http://online/image/url"
 ```
 
 #### 2.1.2 python
 
 ```python
 import json
-import requests
 
 
 # 上传本地图片
 def decode_captcha_local(img_path):
-    data = {"type": "local"}
     files = {'captcha': open(img_path, 'rb')}
-    response = requests.post("http://localhost:8000", data=data, files=files)
-    result = json.loads(response.text)
-
-
-# 上传在线图片
-def decode_captcha_online(img_url):
-    data = {"type": "online", "captcha": img_url}
-    response = requests.post("http://localhost:8000", data=data)
+    response = requests.post("http://localhost:8000", files=files)
     result = json.loads(response.text)
 
 
 if __name__ == '__main__':
     print(decode_captcha_local("images/captcha.jpg"))
-    print(decode_captcha_online("http://online/image/url"))
 ```
 
 > 备注：其他语言和脚本使用方法类似
@@ -116,13 +102,7 @@ if __name__ == '__main__':
 
 - [http://localhost:8000](http://localhost:8000)
 
-本地图片模式
-
-![local-mode](images/local.png)
-
-在线图片模式
-
-![online-mode](images/online.png)
+![captcha](images/captcha.png)
 
 ## 3. 说明
 
