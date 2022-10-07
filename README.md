@@ -81,23 +81,24 @@ curl -skL http://localhost:8000 -F type=local -F captcha=@captcha.jpg
 
 ```python
 import json
+import requests
 
 
 def decode_captcha(img_path):
     files = {'captcha': open(img_path, 'rb')}
     response = requests.post("http://localhost:8000", files=files)
-    result = json.loads(response.text)
+    return json.loads(response.text)
 
 
 if __name__ == '__main__':
-    print(decode_captcha("images/captcha.jpg"))
+    print(decode_captcha("image/path.jpg"))
 ```
 
 > 备注：其他语言和脚本使用方法类似
 
 ### 2.2 使用Web UI
 
-部署好服务器后，你可以直接打开其本地Web地址
+部署好服务器后，你可以直接打开其本地Web地址，点击上传图片即可
 
 - [http://localhost:8000](http://localhost:8000)
 
