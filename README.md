@@ -83,15 +83,14 @@ curl -skL http://localhost:8000 -F type=local -F captcha=@captcha.jpg
 import json
 
 
-# 上传本地图片
-def decode_captcha_local(img_path):
+def decode_captcha(img_path):
     files = {'captcha': open(img_path, 'rb')}
     response = requests.post("http://localhost:8000", files=files)
     result = json.loads(response.text)
 
 
 if __name__ == '__main__':
-    print(decode_captcha_local("images/captcha.jpg"))
+    print(decode_captcha("images/captcha.jpg"))
 ```
 
 > 备注：其他语言和脚本使用方法类似

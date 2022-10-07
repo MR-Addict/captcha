@@ -9,7 +9,7 @@ ocr = ddddocr.DdddOcr(beta=False, show_ad=False,
                       import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
 
 
-@app.route('/<path:filename>')
+@app.route('/<path:filename>', methods=["GET"])
 def route_static_files(filename):
     return send_from_directory(app.static_folder, filename)
 
