@@ -74,7 +74,7 @@ python index.py
 #### 2.1.1 curl
 
 ```bash
-curl -skL http://localhost:8000 -F type=local -F captcha=@captcha.jpg
+curl -skL http://localhost:8000 -F captcha=@captcha.jpg
 ```
 
 #### 2.1.2 python
@@ -110,7 +110,7 @@ if __name__ == '__main__':
 
 另外本项目也使用了sml2h3的[ddddocr训练项目](https://github.com/sml2h3/dddd_trainer)，来训练适合南京工业大学的校园网登录图形验证码。
 
-我使用自己训练的模型，1000张样本的成功率是100%。你也可以使用默认的模型，识别的成功率也很高，1000张样本只有5张错误。
+使用我自己训练的模型，1000张样本识别的成功率可保持在100%。默认模型识别的成功率也很高，1000张样本只有6、7张左右的错误。
 
 如果你想使用默认的模型，可以修改`index.py`中的以下内容：
 
