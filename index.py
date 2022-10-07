@@ -22,24 +22,17 @@ def route_home_get():
 
 @app.route('/', methods=["POST"])
 def route_home_post():
-    # local image
-    if request.files and "captcha" in request.files and "type" in request.form and request.form['type'] == "local":
+    # upload image
+    if request.files and "captcha" in request.files:
         captcha = request.files['captcha'].read()
         if request.files["captcha"].filename.split(".")[-1].lower() not in ["jpg", "jpeg", "png", "svg"]:
-            return {"status": "false", "message": "File not supported"}
+            return '{"status":"false","message":"File not supported"}'
         if len(captcha) > 1*1024*1024:
-            return {"status": "false", "message": "File size too big"}
-        return {"status": "true", "message": ocr.classification(captcha)}
-    # online image
-    elif "captcha" in request.form and "type" in request.form and request.form['type'] == "online":
-        try:
-            res = requests.get(request.form["captcha"], verify=False)
-        except:
-            return {"status": "false", "message": "Failed"}
-        return {"status": "true", "message": ocr.classification(res.content)}
+            return '{"status":"false","message":"File size too big"}'
+        return '{"status":"true","message":"{}"}'.replace("{}", ocr.classification(captcha))
     # bad request
     else:
-        return {"status": "false", "message": "Bad request"}
+        return '{"status":"false","message":"Bad request"}'
 
 
 if __name__ == '__main__':

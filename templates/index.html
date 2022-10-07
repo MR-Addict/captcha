@@ -17,37 +17,12 @@
       </div>
       <!-- main body -->
       <div class="main">
-        <div class="tabs">
-          <button id="local_button">本地图片</button>
-          <button id="online_button">在线图片</button>
+        <div class="form">
+          <label for="captcha_input">选择图片</label>
+          <input type="file" name="captcha" id="captcha_input" onchange="loadImage(event)" />
         </div>
-        <!-- local tab -->
-        <div id="local_tab" class="tab">
-          <div class="form">
-            <label for="captcha_local">选择图片</label>
-            <input type="file" name="captcha" id="captcha_local" onchange="loadLocalImage(event)" />
-          </div>
-          <div class="result">
-            <img src="default.png" alt="captcha" id="local_img" onerror="img_error(event)" />
-            <p>暂无结果</p>
-          </div>
-        </div>
-        <!-- online tab -->
-        <div id="online_tab" class="tab">
-          <div class="form">
-            <input
-              type="text"
-              name="captcha"
-              id="captcha_online"
-              onchange="loadOnlineImage(event)"
-              placeholder="请输入图片URL"
-            />
-          </div>
-          <div class="result">
-            <img src="default.png" alt="captcha" id="online_img" onerror="img_error(event)" />
-            <p>暂无结果</p>
-          </div>
-        </div>
+        <img src="default.png" alt="captcha" onerror="img_error(event)" />
+        <p>暂无结果</p>
       </div>
     </div>
     <script>
