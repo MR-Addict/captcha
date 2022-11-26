@@ -1,6 +1,7 @@
 FROM python:slim-buster
-WORKDIR /usr/src/app
+WORKDIR /app
 EXPOSE 8000
-COPY . .
+COPY src .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 CMD ["python", "index.py"]

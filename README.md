@@ -115,9 +115,7 @@ if __name__ == '__main__':
 如果你想使用默认的模型，可以修改`index.py`中的以下内容：
 
 ```python
-# 默认模型
 # ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
-# 我自己训练的模型
 ocr = ddddocr.DdddOcr(beta=False, show_ad=False, import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
 ```
 
