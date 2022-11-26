@@ -1,4 +1,4 @@
-FROM python:slim-buster
+FROM python:3.10.8-slim-buster
 WORKDIR /app
 EXPOSE 8000
 COPY src .
