@@ -9,52 +9,52 @@
 
 #### 1.1.1 一键部署
 
-一键部署
+一键部署：
 
 ```bash
 docker run --restart=unless-stopped -p 8000:8000 -d --name captcha mraddict063/captcha
 ```
 
+> docker-compose版：
+> ```bash
+> docker-compose up -d
+> ```
+
 #### 1.1.2 手动编译
 
-克隆文档
+克隆文档：
 
 ```bash
 git clone https://github.com/MR-Addict/captcha.git
 ```
 
-编译镜像
+编译镜像：
 
 ```bash
 docker build -t captcha .
 ```
 
-启动镜像
+启动镜像：
 
 ```bash
 docker run --restart=always -p 8000:8000 -d --name captcha captcha
 ```
 
-> docker-compose版
-> ```bash
-> docker-compose up -d
-> ```
-
 ### 1.2 本地部署
 
-克隆文档
+克隆文档：
 
 ```bash
 git clone https://github.com/MR-Addict/captcha.git
 ```
 
-安装python依赖
+安装python依赖：
 
 ```bash
 python install -r requirements
 ```
 
-启动app
+启动App：
 
 ```bash
 python index.py
@@ -94,11 +94,11 @@ if __name__ == '__main__':
     print(decode_captcha("image/path.jpg"))
 ```
 
-> 备注：其他语言和脚本使用方法类似
+> 注意：其他语言和脚本使用方法可自行查询参考
 
 ### 2.2 使用Web UI
 
-部署好服务器后，你可以直接打开其本地Web地址，点击上传图片即可
+部署好服务器后，直接打开其本地Web地址上传图片即可：
 
 - [http://localhost:8000](http://localhost:8000)
 
@@ -110,15 +110,15 @@ if __name__ == '__main__':
 
 另外本项目也使用了sml2h3的[ddddocr训练项目](https://github.com/sml2h3/dddd_trainer)，来训练适合南京工业大学的校园网登录图形验证码。
 
-使用我自己训练的模型，1000张样本识别的成功率可保持在100%。默认模型识别的成功率也很高，1000张样本只有6、7张左右的错误。
+使用自己训练的模型，1000张样本识别的成功率可保持在100%。默认模型识别的成功率也很高，1000张样本只有6、7张左右的错误。
 
-如果你想使用默认的模型，可以修改`index.py`中的以下内容：
+如果你想使用默认的模型，可以修改`src/index.py`中的以下内容：
 
 ```python
 # ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
 ocr = ddddocr.DdddOcr(beta=False, show_ad=False, import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
 ```
 
-目前南京工业大学的校园网登录图形验证码如下。
+目前南京工业大学校园网登录图形验证码大体如下：
 
 ![Njtech-Captcha](images/5958.jpg)
