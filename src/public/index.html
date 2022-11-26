@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
@@ -11,24 +11,14 @@
   </head>
   <body>
     <div class="container">
-      <!-- header -->
-      <div class="header">
-        <h1>Captcha识别器</h1>
-      </div>
-      <!-- main body -->
       <div class="main">
-        <div class="form">
-          <label for="captcha_input">上传图片</label>
-          <input type="file" name="captcha" id="captcha_input" onchange="loadImage(event)" />
-        </div>
-        <img src="default.png" alt="captcha" onerror="img_error(event)" />
         <p>暂无结果</p>
+        <img src="images/default.png" alt="captcha" />
+        <div class="form">
+          <label for="captcha_input">点击上传</label>
+          <input type="file" name="captcha" id="captcha_input" onchange="handleUpload(event)" />
+        </div>
       </div>
     </div>
-    <script>
-      let footer = document.createElement("footer");
-      footer.innerHTML = `<footer">&copy; Copyright ${new Date().getFullYear()} MR-Addict</footer>`;
-      document.body.appendChild(footer);
-    </script>
   </body>
 </html>

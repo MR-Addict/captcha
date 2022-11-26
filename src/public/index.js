@@ -1,24 +1,24 @@
-// set image error image
-function img_error(event) {
-  event.target.src = "404.png";
-}
+// load footer
+window.onload = function () {
+  const footer = document.createElement("footer");
+  footer.innerHTML = `<footer">&copy; Copyright ${new Date().getFullYear()} MR-Addict</footer>`;
+  document.body.appendChild(footer);
+};
 
-// load image
-function loadImage(event) {
+// handle upload
+async function handleUpload(event) {
   const captcha = event.target.files[0];
   if (!captcha) return;
   const image = document.querySelector(".main img");
   image.src = URL.createObjectURL(captcha);
-  uploadImage(captcha);
-}
-
-// upload image
-function uploadImage(captcha) {
-  if (!captcha) return;
+  // fetch backend data
   const formData = new FormData();
   formData.append("captcha", captcha);
-  fetch("/", { method: "POST", body: formData })
-    .then((response) => response.json())
-    .then((response) => (document.querySelector(".main p").innerText = response.message))
-    .catch((error) => (document.querySelector(".main p").innerText = "识别失败"));
+  const respone = await fetch("/", { method: "POST", body: formData });
+  if (respone.ok) {
+    const message = await respone.json();
+    document.querySelector(".main p").innerText = message.message;
+  } else {
+    document.querySelector(".main p").innerText = "识别失败";
+  }
 }
