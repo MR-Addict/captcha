@@ -15,8 +15,8 @@ async function handleUpload(event) {
   const formData = new FormData();
   formData.append("captcha", captcha);
   const respone = await fetch("/", { method: "POST", body: formData });
-  if (respone.ok) {
-    const message = await respone.json();
+  const message = await respone.json();
+  if (respone.ok && message.status) {
     document.querySelector(".main p").innerText = message.message;
   } else {
     document.querySelector(".main p").innerText = "识别失败";
