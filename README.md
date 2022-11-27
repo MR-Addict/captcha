@@ -112,13 +112,16 @@ if __name__ == '__main__':
 
 使用自己训练的模型，1000张样本识别的成功率可保持在100%。默认模型识别的成功率也很高，1000张样本只有6、7张左右的错误。
 
-如果你想使用默认的模型，可以修改`src/index.py`中的以下内容：
+如果你想使用默认的模型，可以注释掉`src/index.py`中的有关model的内容：
 
 ```python
-# ocr = ddddocr.DdddOcr(beta=False, show_ad=False)
-ocr = ddddocr.DdddOcr(beta=False, show_ad=False, import_onnx_path="models/captcha.onnx", charsets_path="models/charsets.json")
+ocr = ddddocr.DdddOcr(
+    beta=False,
+    show_ad=False,
+    import_onnx_path="model/captcha.onnx", charsets_path="model/charsets.json"
+)
 ```
 
-目前南京工业大学校园网登录图形验证码大体如下：
+目前南京工业大学校园网登录图形验证码大致如下：
 
 ![Njtech-Captcha](images/5958.jpg)
