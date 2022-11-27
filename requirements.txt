@@ -1,4 +1,3 @@
 fastapi
 ddddocr
 uvicorn
-python-multipart
