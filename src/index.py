@@ -31,5 +31,5 @@ async def handle_captcha_upload(captcha: Union[UploadFile, None] = None):
 
 
 app.mount("/", StaticFiles(directory="public", html=True), name="public")
-# if __name__ == "__main__":
-#     uvicorn.run("index:app", host="0.0.0.0", port=8000, log_level="info")
+if __name__ == "__main__":
+    uvicorn.run("index:app", port=8000, log_level="info")

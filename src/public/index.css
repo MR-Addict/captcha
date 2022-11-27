@@ -10,10 +10,10 @@ html {
 }
 
 :root {
-  --pri-bcg: #30bd90;
-  --pri-white: #fff;
+  --pri-bcg: #fff;
   --pri-green: #309e9b;
-  --pri-grey: #858585;
+  --pri-white: #fff;
+  --pri-theme: #d4ede2;
 }
 
 /* body */
@@ -50,8 +50,8 @@ body {
   align-items: center;
   justify-content: center;
 
-  background: var(--pri-white);
-  box-shadow: 0.2rem 0.2rem 1.2rem 0.2rem var(--pri-grey);
+  background: var(--pri-theme);
+  box-shadow: 0.2rem 0.2rem 1.4rem 0.2rem #aaa;
 }
 
 /* form */
