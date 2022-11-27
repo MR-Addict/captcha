@@ -91,7 +91,7 @@ body {
   border: solid 0.2rem var(--pri-green);
   border-style: dashed;
 
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* reusult paragraph */
