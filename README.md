@@ -15,10 +15,11 @@
 docker run --restart=unless-stopped -p 8000:8000 -d --name captcha mraddict063/captcha
 ```
 
-> docker-compose版：
-> ```bash
-> docker-compose up -d
-> ```
+docker-compose版：
+
+```bash
+docker-compose up -d
+```
 
 #### 1.1.2 手动编译
 
@@ -57,7 +58,7 @@ python install -r requirements
 启动App：
 
 ```bash
-python index.py
+uvicorn index:app --reload
 ```
 
 ## 2. 如何使用

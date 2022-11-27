@@ -4,4 +4,4 @@ EXPOSE 8000
 COPY src .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-CMD ["python", "index.py"]
+CMD ["uvicorn", "index:app"]
