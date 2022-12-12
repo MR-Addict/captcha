@@ -13,6 +13,7 @@ html {
   --pri-bcg: #fff;
   --pri-green: #309e9b;
   --pri-white: #fff;
+  --pri-gray: #aaa;
   --pri-theme: #d4ede2;
 }
 
@@ -51,7 +52,7 @@ body {
   justify-content: center;
 
   background: var(--pri-theme);
-  box-shadow: 0.2rem 0.2rem 1.4rem 0.2rem #aaa;
+  box-shadow: 0.2rem 0.2rem 1.4rem 0.2rem var(--pri-gray);
 }
 
 /* form */
@@ -113,6 +114,11 @@ body {
 footer {
   margin: 3rem 0;
   font-size: 1.6rem;
+  color: var(--pri-gray);
+}
+
+footer a{
+  color: var(--pri-gray);
 }
 
 @media screen and (max-width: 800px) {

@@ -1,7 +1,7 @@
 // load footer
 window.onload = function () {
   const footer = document.createElement("footer");
-  footer.innerHTML = `<footer">&copy; Copyright ${new Date().getFullYear()} MR-Addict</footer>`;
+  footer.innerHTML = `<footer">&copy; Copyright ${new Date().getFullYear()} | <a href="https://github.com/MR-Addict">MR-Addict</a> | <a href="https://github.com/MR-Addict/captcha">Source</a></footer>`;
   document.body.appendChild(footer);
 };
 

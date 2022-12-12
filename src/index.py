@@ -16,7 +16,7 @@ ocr = ddddocr.DdddOcr(
 )
 
 
-@app.post("/")
+@app.post("/", tags=["Captcha"])
 async def handle_captcha_upload(captcha: Union[UploadFile, None] = None):
     if not captcha:
         return {"status": False, "message": "No file upload"}
