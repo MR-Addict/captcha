@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
   <head>
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Captcha识别器" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" defer></script>
     <title>Captcha识别器</title>
   </head>
   <body>
+    <span></span>
     <div class="container">
       <div class="main">
         <p>暂无结果</p>
         <img src="images/default.png" alt="captcha" />
-        <div class="form">
-          <label for="captcha_input">上传图片</label>
-          <input type="file" name="captcha" id="captcha_input" onchange="handleUpload(event)" />
-        </div>
+        <form class="form">
+          <label for="captcha_input">点击上传</label>
+          <input required type="file" name="captcha" id="captcha_input" onchange="handleUpload(event)" />
+        </form>
       </div>
     </div>
+    <footer></footer>
+    <script>
+      const footer = document.querySelector("footer");
+      footer.innerHTML = `<span>Copyright &copy; ${new Date().getFullYear()}</span> • <a href="https://github.com/MR-Addict"> MR-Addict</a> • <a href="https://github.com/MR-Addict/captcha">Github</a> • <a href="/docs">API</a>`;
+    </script>
   </body>
 </html>

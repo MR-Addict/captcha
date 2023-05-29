@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 services:
   captcha:
     image: mraddict063/captcha
     container_name: captcha
     restart: unless-stopped
     ports:
-      - 8000:8000
+      - 45547:45547
